@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="tests">
+  <listeners>
+    <listener class-name="phoenix.Listeners"/>
+  </listeners>
+  <test name="Test">
+    <classes>
+      <class name="phoenix.assertTitle"/>
+    </classes>
+  </test> <!-- Test -->
+  <test name="Test2">
+    <classes>
+      <class name="phoenix.HomePage"/>
+    </classes>
+  </test> <!-- Test2 -->
+  <test name="Test(failed)" parallel="tests">
+    <classes>
+      <class name="phoenix.HomePage">
+        <methods>
+          <include name="tearDown"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- phoenix.HomePage -->
+      <class name="phoenix.assertTitle">
+        <methods>
+          <include name="initialize"/>
+          <include name="basePageNavigation"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- phoenix.assertTitle -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
